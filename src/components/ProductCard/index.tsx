@@ -7,7 +7,7 @@ import { useCart } from '@/store/cart'
 import { formatDiscount, formatPrice, formatSales } from '@/utils/format'
 import { handleImageError } from '@/utils/image'
 import { defaultSpecText } from '@/utils/product'
-import './ProductCard.less'
+import './index.less'
 
 interface Props {
   product: Product

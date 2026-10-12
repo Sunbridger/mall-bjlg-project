@@ -3,7 +3,7 @@ import { DownOutlined, CaretUpOutlined, CaretDownOutlined } from '@ant-design/ic
 import { Dropdown, Popover } from 'antd'
 import type { PriceRange, SortKey } from '@/types'
 import { useIsMobile } from '@/hooks/useResponsive'
-import './FilterBar.less'
+import './index.less'
 
 export interface PricePreset {
   label: string

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { Category } from '@/types'
-import './CategoryNav.less'
+import './index.less'
 
 interface Props {
   categories: Category[]

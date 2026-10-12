@@ -1,6 +1,6 @@
 import { Empty } from 'antd'
 import type { ReactNode } from 'react'
-import './EmptyState.less'
+import './index.less'
 
 interface Props {
   description?: string

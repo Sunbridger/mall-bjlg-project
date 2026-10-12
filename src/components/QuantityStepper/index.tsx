@@ -1,6 +1,6 @@
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 import { MAX_QUANTITY } from '@/store/cartReducer'
-import './QuantityStepper.less'
+import './index.less'
 
 interface Props {
   value: number

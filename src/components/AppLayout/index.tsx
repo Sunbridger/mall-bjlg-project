@@ -1,9 +1,9 @@
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { AppstoreOutlined, HomeOutlined, LeftOutlined, SearchOutlined } from '@ant-design/icons'
 import { useIsMobile } from '@/hooks/useResponsive'
-import { SearchBar } from './SearchBar'
-import { CartBadge } from './CartBadge'
-import './AppLayout.less'
+import { SearchBar } from '@/components/SearchBar'
+import { CartBadge } from '@/components/CartBadge'
+import './index.less'
 
 /** 路由 -> 移动端标题 */
 function resolveTitle(pathname: string): string {

@@ -3,7 +3,7 @@ import { Badge } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import { useCart } from '@/store/cart'
-import './CartBadge.less'
+import './index.less'
 
 interface Props {
   /** 移动端底栏用紧凑样式 */

@@ -1,8 +1,8 @@
 import { Button, Skeleton } from 'antd'
 import type { Product } from '@/types'
-import { ProductCard } from './ProductCard'
-import { EmptyState } from './EmptyState'
-import './ProductGrid.less'
+import { ProductCard } from '@/components/ProductCard'
+import { EmptyState } from '@/components/EmptyState'
+import './index.less'
 
 interface Props {
   products: Product[]

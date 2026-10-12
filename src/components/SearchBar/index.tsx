@@ -3,7 +3,7 @@ import { AutoComplete, Input } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import { suggestKeywordsFor } from '@/api/product'
-import './SearchBar.less'
+import './index.less'
 
 interface Props {
   /** 初始关键词 */
