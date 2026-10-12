@@ -1,5 +1,7 @@
 node_modules
 .npm-cache
+# 本机 npm 缓存权限问题的绕行配置，只对本机有效，不进仓库
+.npmrc
 dist
 dist-ssr
 .vercel

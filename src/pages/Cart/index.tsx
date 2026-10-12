@@ -20,8 +20,6 @@ export default function Cart() {
     setQuantity,
     toggleItem,
     toggleAll,
-    removeSelected,
-    clear,
     lastAddedKey,
   } = useCart()
 
@@ -93,24 +91,6 @@ export default function Cart() {
           购物车
           <span className="cart__count">共 {summary.count} 件商品</span>
         </h2>
-        <div className="cart__head-actions">
-          <Popconfirm
-            title="删除选中的商品？"
-            okText="删除"
-            cancelText="取消"
-            onConfirm={removeSelected}
-            disabled={summary.selectedCount === 0}
-          >
-            <Button type="text" disabled={summary.selectedCount === 0}>
-              删除选中
-            </Button>
-          </Popconfirm>
-          <Popconfirm title="清空购物车？" okText="清空" cancelText="取消" onConfirm={clear}>
-            <Button type="text" danger>
-              清空
-            </Button>
-          </Popconfirm>
-        </div>
       </header>
 
       <div className="cart__list">
