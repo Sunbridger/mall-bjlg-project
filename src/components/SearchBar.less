@@ -1,0 +1,46 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: @gap-sm;
+  width: 100%;
+  max-width: 560px;
+
+  &__autocomplete {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__icon {
+    color: @color-text-secondary;
+  }
+
+  &__submit {
+    flex: none;
+    height: 32px;
+    padding: 0 18px;
+    border: none;
+    border-radius: @radius-md;
+    background: @color-primary;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: @color-primary-hover;
+    }
+
+    .mobile({
+      display: none;
+    });
+  }
+
+  .ant-input-affix-wrapper {
+    border-radius: @radius-md;
+  }
+}
+
+.search-bar__option {
+  .ellipsis();
+  display: block;
+}

@@ -1,0 +1,61 @@
+// ============ 通用 mixin（全局注入） ============
+
+// 移动端：小于断点
+.mobile(@rules) {
+  @media (max-width: (@bp-md - 1px)) {
+    @rules();
+  }
+}
+
+// PC 端：大于等于断点
+.desktop(@rules) {
+  @media (min-width: @bp-md) {
+    @rules();
+  }
+}
+
+// 单行省略
+.ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 多行省略
+.ellipsis-lines(@lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// 居中容器
+.container() {
+  width: 100%;
+  max-width: @page-max-width;
+  margin: 0 auto;
+  padding: 0 @page-padding;
+}
+
+// 卡片
+.card() {
+  background: @color-bg-card;
+  border-radius: @radius-md;
+  box-shadow: @shadow-card;
+}
+
+// 价格文字
+.price-text() {
+  color: @color-price;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+// 隐藏滚动条但可滚动
+.hide-scrollbar() {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

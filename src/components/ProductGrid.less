@@ -1,0 +1,35 @@
+.product-grid-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: @gap-lg;
+}
+
+.product-grid__skeleton {
+  .card();
+  padding: @gap-md;
+  display: flex;
+  flex-direction: column;
+  gap: @gap-sm;
+}
+
+.product-grid__skeleton-img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+
+  .ant-skeleton-image {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.product-grid__more {
+  display: flex;
+  justify-content: center;
+  padding: @gap-sm 0 @gap-lg;
+}
+
+.product-grid__end {
+  color: @color-text-secondary;
+  font-size: 13px;
+}

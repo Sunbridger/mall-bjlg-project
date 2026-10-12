@@ -1,0 +1,150 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: @gap-lg;
+
+  &__search {
+    margin-bottom: -4px;
+  }
+
+  &__banner {
+    border-radius: @radius-md;
+    overflow: hidden;
+
+    // 不给容器写死高度：react-slick 在 .slick-slide 与业务节点之间还有一层包装，
+    // 写死高度会让内层撑不满，底部留出空白。改由 slide 的 min-height 决定整体高度。
+    .slick-list,
+    .slick-track {
+      height: auto;
+    }
+
+    .slick-dots {
+      bottom: 6px;
+    }
+  }
+
+  &__banner-slide {
+    width: 100%;
+    min-height: 132px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+    padding: @gap-md @gap-lg;
+    color: #fff;
+    text-align: left;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+
+    // 底层商品实拍图 + 上层「左深右浅」压暗遮罩，保证左侧文案可读
+    background-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.66) 0%,
+        rgba(0, 0, 0, 0.34) 52%,
+        rgba(0, 0, 0, 0.08) 100%
+      ),
+      var(--banner-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (min-width: @bp-md) {
+      min-height: 176px;
+      gap: @gap-sm;
+      padding: @gap-lg @gap-xl;
+    }
+  }
+
+  &__banner-title {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.25;
+
+    @media (min-width: @bp-md) {
+      font-size: 25px;
+    }
+  }
+
+  &__banner-subtitle {
+    font-size: 12px;
+    opacity: 0.94;
+
+    @media (min-width: @bp-md) {
+      font-size: 14px;
+    }
+  }
+
+  &__banner-cta {
+    margin-top: 2px;
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(4px);
+  }
+
+  &__categories {
+    .card();
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: @gap-sm 0;
+    padding: @gap-lg @gap-sm;
+
+    @media (min-width: @bp-md) {
+      grid-template-columns: repeat(8, 1fr);
+      padding: @gap-xl @gap-sm;
+    }
+  }
+
+  &__category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: @gap-sm 0;
+    border-radius: @radius-md;
+    transition: background 0.16s ease;
+
+    &:hover {
+      background: #f7f8fa;
+    }
+  }
+
+  &__category-icon {
+    font-size: 26px;
+  }
+
+  &__category-name {
+    font-size: 13px;
+    color: @color-text;
+  }
+
+  &__feed {
+    display: flex;
+    flex-direction: column;
+    gap: @gap-md;
+  }
+
+  &__section-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    padding-left: 12px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 16px;
+      border-radius: 2px;
+      background: @color-primary;
+    }
+  }
+}

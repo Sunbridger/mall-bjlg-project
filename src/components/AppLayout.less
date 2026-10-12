@@ -1,0 +1,198 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: @color-bg;
+
+  &__main {
+    flex: 1;
+    width: 100%;
+    padding: @gap-lg 0 @gap-xl;
+  }
+
+  &.is-mobile &__main {
+    padding: @gap-md 0 (@tabbar-height + @gap-lg);
+  }
+}
+
+// ---------------- 顶部导航 ----------------
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 1px 0 @color-border;
+
+  &--desktop {
+    height: @header-height;
+  }
+
+  &__inner {
+    .container();
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: @gap-lg;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: @gap-sm;
+    flex: none;
+  }
+
+  &__logo-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: @radius-md;
+    background: linear-gradient(135deg, #ff7875, @color-primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  &__logo-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: @color-text;
+    letter-spacing: 0.5px;
+  }
+
+  &__search {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: @gap-lg;
+    flex: none;
+
+    a {
+      font-size: 14px;
+      color: @color-text-secondary;
+      padding: 6px 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.16s ease, border-color 0.16s ease;
+
+      &:hover,
+      &.is-active {
+        color: @color-primary;
+        border-bottom-color: @color-primary;
+      }
+    }
+  }
+
+  // -------- 移动端 --------
+  &--mobile {
+    height: 52px;
+    padding: 0 @page-padding;
+    display: flex;
+    align-items: center;
+    gap: @gap-md;
+
+    .app-header__logo-text {
+      font-size: 16px;
+    }
+
+    .app-header__logo-mark {
+      width: 28px;
+      height: 28px;
+      font-size: 14px;
+    }
+  }
+
+  &__back {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    color: @color-text;
+    padding: 4px 6px 4px 0;
+    cursor: pointer;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    .ellipsis();
+  }
+
+  &--mobile .cart-badge {
+    margin-left: auto;
+  }
+
+  &--mobile .app-header__logo + .cart-badge {
+    margin-left: auto;
+  }
+}
+
+// ---------------- 移动端底部导航 ----------------
+.app-tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  height: @tabbar-height;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: @shadow-up;
+
+  a,
+  &__cart {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-size: 11px;
+    color: @color-text-secondary;
+    height: 100%;
+
+    .anticon {
+      font-size: 20px;
+    }
+
+    &.is-active {
+      color: @color-primary;
+    }
+  }
+
+  &__cart {
+    .cart-badge__icon {
+      font-size: 20px;
+    }
+
+    .ant-badge {
+      line-height: 1;
+    }
+  }
+}
+
+// ---------------- 页脚 ----------------
+.app-footer {
+  background: #fff;
+  border-top: 1px solid @color-border;
+  padding: @gap-xl 0;
+
+  &__inner {
+    .container();
+    text-align: center;
+    color: @color-text-secondary;
+    font-size: 13px;
+
+    p {
+      margin: 4px 0;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: @gap-md;
+
+  &__layout {
+    display: flex;
+    gap: @gap-lg;
+    align-items: flex-start;
+  }
+
+  .category-sidebar {
+    flex: none;
+    width: 180px;
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: @gap-md;
+  }
+
+}

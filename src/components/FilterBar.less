@@ -1,0 +1,180 @@
+.filter-bar {
+  .card();
+  padding: @gap-md;
+  display: flex;
+  flex-direction: column;
+  gap: @gap-sm;
+
+  .desktop({
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: @gap-lg;
+  });
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: @gap-sm;
+    overflow-x: auto;
+    .hide-scrollbar();
+
+    &--price {
+      padding-top: @gap-sm;
+      border-top: 1px dashed @color-border;
+
+      .desktop({
+        padding-top: 0;
+        border-top: none;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      });
+    }
+  }
+}
+
+// ---------------- 移动端：单行下拉筛选条 ----------------
+.filter-bar.filter-bar--mobile {
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid @color-border;
+  border-radius: @radius-sm;
+  // 去掉卡片投影，条本身够窄，再加阴影会显得笨重
+  box-shadow: none;
+
+  .filter-bar__item {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 36px;
+    padding: 0 4px;
+    border: none;
+    background: transparent;
+    color: @color-text;
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.16s ease;
+
+    // 短竖线分隔，比通栏分割线轻
+    & + .filter-bar__item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 12px;
+      background: @color-border;
+    }
+
+    &.is-active {
+      color: @color-primary;
+      font-weight: 500;
+    }
+  }
+
+  .filter-bar__caret {
+    font-size: 9px;
+    opacity: 0.55;
+  }
+
+  // 价格的双三角指示：当前排序方向高亮
+  .filter-bar__carets {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 0.5;
+    font-size: 9px;
+    color: #c4c7cc;
+
+    .anticon {
+      transition: color 0.16s ease;
+    }
+
+    .is-on {
+      color: @color-primary;
+    }
+  }
+}
+
+// 下拉面板（价格区间）
+.filter-panel {
+  width: 264px;
+  padding: @gap-xs 0;
+
+  &__title {
+    font-size: 12px;
+    color: @color-text-secondary;
+    padding: 0 4px @gap-sm;
+  }
+
+  &__chips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: @gap-sm;
+  }
+
+  &__chip {
+    height: 34px;
+    border-radius: @radius-sm;
+    border: 1px solid @color-border;
+    background: #fff;
+    color: @color-text;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.16s ease;
+
+    &:hover {
+      border-color: @color-primary;
+      color: @color-primary;
+    }
+
+    &.is-active {
+      border-color: @color-primary;
+      color: @color-primary;
+      background: fade(@color-primary, 8%);
+      font-weight: 500;
+    }
+  }
+}
+
+.filter-chip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 15px;
+  border: 1px solid @color-border;
+  background: #fff;
+  color: @color-text;
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.16s ease;
+
+  &:hover {
+    border-color: @color-primary;
+    color: @color-primary;
+  }
+
+  &.is-active {
+    background: fade(@color-primary, 8%);
+    border-color: @color-primary;
+    color: @color-primary;
+    font-weight: 500;
+  }
+
+  &--price {
+    padding: 0 10px;
+  }
+}
